@@ -8,7 +8,7 @@ Based on Landscape.
 ### Install
 
 ``` bash
-$ git clone https://github.com/dirusec/hexo-theme-firekylin.git themes/hexokylin
+$ git clone https://github.com/dirusec/hexo-theme-hexokylin.git themes/hexokylin
 ```
 
 **Requires Hexo 2.4 and above.** If you would like to enable the RSS, the [hexo-generate-feed] plugin is also required.
