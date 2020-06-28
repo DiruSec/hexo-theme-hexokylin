@@ -1,0 +1,11 @@
+<% if (page.prev || page.next){ %>
+    <nav class="relative-post">
+      <% if (page.prev){ %>
+        <a class="prevpost" href="<%- url_for(page.prev_link) %>">&laquo; Last Page</a>
+      <% } %>
+      <% if (page.next){ %>
+        <a class="nextpost" href="<%- url_for(page.next_link) %>">Next Page &raquo;</a>
+      <% } %>
+      <div class="clear"></div>
+    </nav>
+    <% } %>

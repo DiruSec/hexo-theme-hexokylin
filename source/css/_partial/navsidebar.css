@@ -1,0 +1,103 @@
+.wrapper{
+    background-image: url(images/cover.jpg);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 100%;
+    transition: background 2s ease-in-out;
+}
+.wrapper:hover{
+    background-position: right;
+}
+.profile{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+.profile-image{
+    display: block;
+    margin: 0 auto;
+}
+.profile-image-container{
+    background-image: url(images/wow.png);
+    display: block;
+    margin: 0 auto;
+    border-radius: 70px;
+    height: 140px;
+    width: 140px;
+    overflow: hidden;
+}
+.profile-title{
+    display: block;
+    font-size: 18px;
+    padding: 10px 0;
+    text-align: center;
+    color: #FFF;
+}
+.navbar-link ul, .navbar-link li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+.navbar-link li{
+    display: block;
+    font-size: 16px;
+    height: 45px;
+    width: 100%;
+    line-height: 45px;
+}
+.navbar{
+    margin-bottom: 20px;
+}
+.navbar-link, .wrapper i, .wrapper span{
+    color: #fff;
+    line-height: 45px;
+    font-family: FontAwesome;
+}
+.navbar-link{
+    display: inline-block;
+    padding-left: 25px;
+    text-decoration: none;
+    box-sizing: border-box;
+    line-height: 45px;
+}
+.navbar-link i{
+    font-size: 20px;
+    margin-right: 20px;
+    width: 25px;
+}
+.navbar-link span{
+    position: relative;
+    top: -4px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.thirdbar{
+    padding-left: 25px;
+}
+
+.third-icon{
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .profile-image-container{
+        width: 25px;
+        height: 25px;
+    }
+
+    .profile-title{
+        display: none;
+    }
+
+    .wrapper span{
+        display: none;
+    }
+
+    #sidebar-mask{
+        display: block;
+    }
+}

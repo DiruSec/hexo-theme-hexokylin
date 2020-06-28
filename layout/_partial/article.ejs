@@ -1,0 +1,41 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <%- partial('post/date', {class_name: 'article-date', date_format: "YYYY-MM-DD HH:mm:ss"}) %>
+    <% if (post.link || post.title){ %>
+      <div class="article-header">
+        <%- partial('post/title', {class_name: 'article-title'}) %>
+      </div>
+    <% } %>
+  </div>
+  <div class="article-content">
+    <%- partial('post/gallery') %>
+      <% if (post.excerpt && index){ %>
+        <%- post.excerpt %>
+        <% if (theme.excerpt_link){ %>
+            <a class="article-more-link" href="<%- url_for(post.path) %>"><%= theme.excerpt_link %> » </a>
+        <% } %>
+      <% } else { %>
+        <%- post.content %>
+      <% } %>
+  </div>
+    <% if (!index){ %>
+    <div class="article-footer">
+        <p> -- <acronym title="End of File">EOF</acronym> -- </p>
+        <%- partial('post/category_tag') %>
+      <% if (post.comments && config.disqus_shortname){ %>
+        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
+      <% } %>
+      </div>
+      <% } %>
+  <% if (!index){ %>
+    <%- partial('post/nav') %>
+  <% } %>
+</article>
+
+<% if (!index && post.comments && config.disqus_shortname){ %>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+<% } %>

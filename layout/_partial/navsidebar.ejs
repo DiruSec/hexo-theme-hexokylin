@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="profile">
+        <a class="profile-image" href="<%- url_for() %>">
+            <div class="profile-image-container"></div>
+        </a>
+        <span class="profile-title"><%= config.title %></span>
+    </div>
+    <ul class="navbar">
+        <% for (var menuName in theme.menu){ %>
+        <li class="nav-warpper">
+            <%
+            var link = Object.assign({}, theme.menu[menuName])
+            link.class = link.class || ''
+            link.url = link.url.startsWith("/#") ? link.url.substr(1) : link.url
+            link.url = url_for(link.url)
+            %>
+            <a class="navbar-link" href="<%- (link.url) %>">
+                <i class="<%- (link.icon) %>"></i>
+                <span><%= (link.title) %></span>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+    <ul class="thirdbar">
+        <li>
+            <% for (var menuName in theme.iconmenu){ %>
+                <%
+                var link = Object.assign({}, theme.iconmenu[menuName])
+                link.class = link.class || ''
+                link.url = link.url.startsWith("/#") ? link.url.substr(1) : link.url
+                link.url = url_for(link.url)
+                %>
+            <a href="<%- (link.url) %>" class="third-icon"><i class="<%- (link.icon) %>"></i></a>
+            <% } %>
+            <a class="third-icon" href="https://www.google.com/webhp#newwindow=1&q=site:https://dirusec.com/blog"><i class="fa fa-search"></i></a>
+        </li>
+    </ul>
+</div>

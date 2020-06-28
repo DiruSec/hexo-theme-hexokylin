@@ -1,0 +1,11 @@
+<% if (post.prev || post.next){ %>
+<nav class="relative-post">
+  <% if (post.prev){ %>
+    <a class="prevpost" href="<%- url_for(post.prev.path) %>">&laquo; <%= post.prev.title %></a>
+  <% } %>
+  <% if (post.next){ %>
+    <a class="nextpost" href="<%- url_for(post.next.path) %>"><%= post.next.title %> &raquo;</a>
+  <% } %>
+  <div class="clear"></div>
+</nav>
+<% } %>

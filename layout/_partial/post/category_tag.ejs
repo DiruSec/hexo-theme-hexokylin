@@ -1,0 +1,26 @@
+<% if (post.categories && post.categories.length){ %>
+    <div class="article-info">
+        <p> 发表于 
+        <i>
+            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm:ss") %></time>
+        </i>
+        <% if (post.categories && post.categories.length){ %>
+        ，添加在分类「
+        <% for (var i in post.categories.data) { %>
+            <% var category = post.categories.data[i].name %>
+            <a href="<%- url_for('/categories/'+category) %> "><code><%= category  %></code></a>
+        <% } %>
+        」下，
+        <% } %>
+        <% if (post.tags && post.tags.length){ %>
+        并被添加「
+        <% for (var i in post.tags.data) { %>
+            <% var tag = post.tags.data[i].name %>
+            <a href="<%- url_for('/tags/'+tag) %> "><code><%= tag %></code></a>
+        <% } %>
+        」标签
+        <% } %>
+        。
+        </p>
+    </div>
+  <% } %>
