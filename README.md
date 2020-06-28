@@ -1,27 +1,26 @@
-# Landscape
+# Hexokylin
 
-A brand new default theme for [Hexo].
-
-- [Preview](http://hexo.io/hexo-theme-landscape/)
+Theme of [Firekylin]. Now avaliable on [Hexo].  
+Based on Landscape.
 
 ## Installation
 
 ### Install
 
 ``` bash
-$ git clone https://github.com/hexojs/hexo-theme-landscape.git themes/landscape
+$ git clone https://github.com/dirusec/hexo-theme-firekylin.git themes/landscape
 ```
 
-**Landscape requires Hexo 2.4 and above.** If you would like to enable the RSS, the [hexo-generate-feed] plugin is also required.
+**Requires Hexo 2.4 and above.** If you would like to enable the RSS, the [hexo-generate-feed] plugin is also required.
 
 ### Enable
 
-Modify `theme` setting in `_config.yml` to `landscape`.
+Modify `theme` setting in `_config.yml` to `hexokylin`.
 
 ### Update
 
 ``` bash
-cd themes/landscape
+cd themes/hexokylin
 git pull
 ```
 
@@ -30,8 +29,14 @@ git pull
 ``` yml
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  Home: 
+    url: /
+    title: Home
+    icon: fa fa-home
+  Archives:
+    url: /archives
+    title: Archive
+    icon: fa fa-archive
 rss: /atom.xml
 
 # Content
@@ -62,34 +67,20 @@ google_plus:
 - **widgets** - Widgets displaying in sidebar
 - **google_analytics** - Google Analytics ID
 - **favicon** - Favicon path
-- **twitter** - Twiiter ID
+- **twitter** - Twiter ID
 - **google_plus** - Google+ ID
 
 ## Features
 
 ### Fancybox
 
-Landscape uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
+Hexokylin uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
 
 ```
 ![img caption](img url)
 
 {% fancybox img_url [img_thumbnail] [img_caption] %}
 ```
-
-### Sidebar
-
-You can put your sidebar in left side, right side or bottom of your site by editing `sidebar` setting.
-
-Landscape provides 5 built-in widgets:
-
-- category
-- tag
-- tagcloud
-- archives
-- recent_posts
-
-All of them are enabled by default. You can edit them in `widget` setting.
 
 ## Development
 
@@ -105,6 +96,7 @@ All of them are enabled by default. You can edit them in `widget` setting.
 - **fancybox** - Only download [Fancybox].
 - **clean** - Clean temporarily files and downloaded files.
 
+[Firekylin]: https://github.com/firekylin/firekylin
 [Hexo]: https://hexo.io/
 [Fancybox]: http://fancyapps.com/fancybox/
 [Font Awesome]: http://fontawesome.io/
