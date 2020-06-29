@@ -70,7 +70,7 @@ hightlight: false      //disable hexo's build-in hightlighting feature.
 hightlightjs: true
 ```
 
-- **hightlightjs** - Using hightlight.js for code hightlighting.
+- **hightlightjs** - Use hightlight.js for code hightlighting.
 ## Features
 
 ### Fancybox
