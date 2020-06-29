@@ -1,6 +1,6 @@
 # Hexokylin
 
-Default theme of [Firekylin] porting into [Hexo].  
+Default theme of [Firekylin] ported into [Hexo].  
 
 ## Installation
 
