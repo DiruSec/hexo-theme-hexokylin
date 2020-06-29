@@ -1,7 +1,6 @@
 # Hexokylin
 
-Theme of [Firekylin]. Now avaliable on [Hexo].  
-Based on Landscape.
+Default theme of [Firekylin] porting into [Hexo].  
 
 ## Installation
 
@@ -37,20 +36,16 @@ menu:
     url: /archives
     title: Archive
     icon: fa fa-archive
+iconmenu:
+  Github:
+    url: https://github.com/DiruSec
+    icon: fa fa-github fa-fw
+    
 rss: /atom.xml
 
 # Content
 excerpt_link: Read More
 fancybox: true
-
-# Sidebar
-sidebar: right
-widgets:
-- category
-- tag
-- tagcloud
-- archives
-- recent_posts
 
 # Miscellaneous
 google_analytics:
@@ -60,16 +55,22 @@ google_plus:
 ```
 
 - **menu** - Navigation menu
+- **iconmenu** - Icon-only menu under navigation.
 - **rss** - RSS link
 - **excerpt_link** - "Read More" link at the bottom of excerpted articles. `false` to hide the link.
 - **fancybox** - Enable [Fancybox]
-- **sidebar** - Sidebar style. You can choose `left`, `right`, `bottom` or `false`.
-- **widgets** - Widgets displaying in sidebar
 - **google_analytics** - Google Analytics ID
 - **favicon** - Favicon path
 - **twitter** - Twiter ID
 - **google_plus** - Google+ ID
 
+## Configuration (at hexo config)
+``` yml
+hightlight: false      //disable hexo's build-in hightlighting feature.
+hightlightjs: true
+```
+
+- **hightlightjs** - Using hightlight.js for code hightlighting.
 ## Features
 
 ### Fancybox
@@ -92,11 +93,13 @@ Hexokylin uses [Fancybox] to showcase your photos. You can use Markdown syntax o
 ### Grunt tasks
 
 - **default** - Download [Fancybox] and [Font Awesome].
+- **hightlightjs** - Only Download [Highlightjs]'s CDN-release.
 - **fontawesome** - Only download [Font Awesome].
 - **fancybox** - Only download [Fancybox].
 - **clean** - Clean temporarily files and downloaded files.
 
 [Firekylin]: https://github.com/firekylin/firekylin
+[Highlightjs]: https://github.com/highlightjs/cdn-release
 [Hexo]: https://hexo.io/
 [Fancybox]: http://fancyapps.com/fancybox/
 [Font Awesome]: http://fontawesome.io/
