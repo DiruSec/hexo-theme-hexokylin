@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <% if (config.pacejs) { %>
+    <!-- pace.js -->
+    <link rel="stylesheet"
+    href="<%- url_for('/pacejs/themes/blue/pace-theme-flash.css')%>">
+  <% } %>
 <head>
   <meta charset="utf-8">
   <%- partial('google-analytics') %>

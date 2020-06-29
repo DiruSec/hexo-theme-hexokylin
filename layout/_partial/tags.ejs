@@ -1,0 +1,13 @@
+<div class="article-header article-meta archive-header">
+    <h1 class="article-title">
+      <%= __('tags') %>
+    </h1>
+</div>
+<div class="archive-content">
+    <div class="tagcontents">
+        <% for (var i in site.tags.data) {%>
+        <% var tag = site.tags.data[i] %>
+        <a class="tags" href="<%= url_for(tag.path) %>"><%- tag.name %> (<%- tag.length %>)</a>
+        <% } %>
+      </div>
+</div>

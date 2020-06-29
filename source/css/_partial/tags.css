@@ -1,0 +1,17 @@
+.tags{
+  border: 1px solid rgba(36,121,204,.8);
+  border-radius: 4px;
+  color: rgba(36,121,204,.8);
+  display: inline-block;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 15px 10px 0;
+  padding: 0 15px;
+  text-decoration: none;
+  transition: color .2s cubic-bezier(.4,.01,.165,.99),border .2s cubic-bezier(.4,.01,.165,.99);
+  }
+
+  .tags:hover{
+    color: #216EBA
+  }

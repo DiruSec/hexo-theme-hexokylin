@@ -18,6 +18,12 @@ module.exports = function(grunt){
           repository: 'https://github.com/highlightjs/cdn-release.git',
           directory: 'tmp/highlightjs'
         },
+      },
+      pacejs: {
+        options: {
+          repository: 'https://github.com/HubSpot/pace.git',
+          directory: 'tmp/pacejs'
+        },
       }
     },
     copy: {
@@ -44,6 +50,12 @@ module.exports = function(grunt){
         cwd: 'tmp/highlightjs/build/',
         src: ['highlight.min.js', 'styles/monokai.min.css'],
         dest: 'source/highlightjs/'
+      },
+      pacejs: {
+        expand: true,
+        cwd: 'tmp/pacejs/',
+        src: ['pace.min.js', 'themes/blue/pace-theme-flash.css'],
+        dest: 'source/pacejs/'
       }
     },
     _clean: {
@@ -57,6 +69,7 @@ module.exports = function(grunt){
 
   grunt.renameTask('clean', '_clean');
 
+  grunt.registerTask('pacejs', ['gitclone:pacejs', 'copy:pacejs', '_clean:tmp']);
   grunt.registerTask('highlightjs', ['gitclone:highlightjs', 'copy:highlightjs', '_clean:tmp']);
   grunt.registerTask('fontawesome', ['gitclone:fontawesome', 'copy:fontawesome', 'copy:fontawesomecss', '_clean:tmp']);
   grunt.registerTask('fancybox', ['gitclone:fancybox', 'copy:fancybox', '_clean:tmp']);

@@ -4,23 +4,36 @@
   <% }) %>
 <% } else { %>
   <% var last; %>
+    <div class="article-header article-meta archive-header">
+      <h1 class="article-title">
+        <% if (page.category) {%>
+          <%= __('category_with', page.category) %>
+          <% } else if (page.tag) {%>
+            <%= __('tag_with', page.tag) %>
+          <% } else {%>
+        <%= __('archive_a') %>
+        <% } %>
+      </h1>
+    </div>
+    <div class="archive-content">
   <% page.posts.each(function(post, i){ %>
     <% var year = post.date.year(); %>
     <% if (last != year){ %>
       <% if (last != null){ %>
-        </div></section>
+      <%# Render under article list. %>
+        </div>
       <% } %>
       <% last = year; %>
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
-        </div>
+        <h3 class="archive-title-date">
+          <a href="<%- url_for(config.archive_dir + '/' + year) %>"></a><%= year %></a>
+        </h3>
         <div class="archives">
+          <ul class="archive-list">
     <% } %>
-    <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+    <%- partial('archive-post', {post: post}) %>
   <% }) %>
   <% if (page.posts.length){ %>
-    </div></section>
+  </ul></div>
   <% } %>
 <% } %>
 <% if (page.total > 1){ %>

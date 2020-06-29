@@ -1,0 +1,33 @@
+.archive-header{
+    padding-top: 30px;
+}
+
+.archive-content{
+    margin: 2rem 0 0 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px #dddddd solid;
+  }
+.archive-content ul, .archive-content ol{
+    list-style: disc;
+    margin: 1rem 0 1rem 25px;
+}
+
+.archive-title-date{
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+  .archive-article{
+    position: relative;
+    /*left: 2rem;*/
+    line-height: 1.5;
+  }
+  .archive-link{
+    font-size: 1.1rem
+  }
+  .archive-date{
+    margin-left: .5rem;
+    font-size: .8rem;
+    font-style: italic;
+  }
