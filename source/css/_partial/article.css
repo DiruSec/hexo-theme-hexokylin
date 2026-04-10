@@ -41,7 +41,7 @@ article{
     font-size: .9rem;
   }
 
-  .eof-status-dot{
+  #eof-status-dot{
     margin-right: .25rem;
     background: rgb(76, 175, 80);
     width: 0.85rem;

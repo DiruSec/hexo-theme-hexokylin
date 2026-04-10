@@ -1,7 +1,7 @@
 <div class="article-date-container">
     <p> 
-        <span id="eof-status-dot">●</span>
-        <span id="eof-status-text">200 OK</span> --
+        <span class="eof-status-dot"></span>
+        <span class="eof-status-text">200 OK</span> --
         发表于 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm:ss") %></time>
         <% if (post.updated && post.updated !== post.date) { %>
             ，最后更新于 <time datetime="<%= date_xml(post.updated) %>" itemprop="dateUpdated"><%= date(post.updated, "YYYY-MM-DD HH:mm:ss") %></time>
@@ -21,8 +21,8 @@
         
         // 以最新者为准
         const latestTime = Math.max(pubTime, modTime);
-        const statusDot = document.getElementById('eof-status-dot');
-        const statusText = document.getElementById('eof-status-text');
+        const statusDot = document.querySelector('.eof-status-dot');
+        const statusText = document.querySelector('.eof-status-text');
         
         if (latestTime > 0) {
             const now = Date.now();
@@ -41,8 +41,8 @@
     } catch (e) {
         // 2.4 默认 200 OK
         console.error("EOF Status Error:", e);
-        document.getElementById('eof-status-dot').style.color = '#4CAF50';
-        document.getElementById('eof-status-text').textContent = '200 OK';
+        document.querySelector('#eof-status-dot').style.color = '#4CAF50';
+        document.querySelector('#eof-status-text').textContent = '200 OK';
     }
 })();
 </script>
