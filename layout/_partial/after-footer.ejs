@@ -7,13 +7,8 @@
     const disqusjs = new DisqusJS({
       shortname: '<%= config.disqus_shortname %>',
       siteName: '<%= config.title %>',
-      identifier: '',
-      url: '',
-      title: '',
       api: '<%= config.disqusjs_api %>',
       apikey: '<%= config.disqusjs_key %>',
-      admin: '',
-      adminLabel: ''
     });
     disqusjs.render('#disqus_thread');
   </script>
