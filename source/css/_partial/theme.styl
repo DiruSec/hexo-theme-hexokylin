@@ -1,0 +1,312 @@
+:root
+  color-scheme: light
+  --theme-bg: #ffffff
+  --theme-text: #555555
+  --theme-muted: #999999
+  --theme-border: #dddddd
+  --theme-border-soft: #ececec
+  --theme-border-accent: #d6dee6
+  --theme-link: #258fb8
+  --theme-surface: #ffffff
+  --theme-surface-strong: #f5f7fa
+  --theme-shadow: rgba(0, 0, 0, 0.12)
+  --theme-sidebar-bg: #202020
+  --theme-sidebar-text: #ffffff
+  --theme-toolbar-bg: rgba(255, 255, 255, 0.12)
+  --theme-toolbar-bg-hover: rgba(255, 255, 255, 0.2)
+  --theme-code-bg: #ffffff
+  --theme-code-text: #555555
+  --theme-code-inline-bg: #ffffff
+  --theme-mobile-border: #ffffff
+  --theme-header-bg: #202020
+  --theme-overlay: rgba(0, 0, 0, 0.25)
+
+html[data-theme='dark']
+  color-scheme: dark
+  --theme-bg: #0f1216
+  --theme-text: #d8dee9
+  --theme-muted: #9aa4b2
+  --theme-border: #27303a
+  --theme-border-soft: #303846
+  --theme-border-accent: #3a4653
+  --theme-link: #7ab8ff
+  --theme-surface: #151a21
+  --theme-surface-strong: #1b2230
+  --theme-shadow: rgba(0, 0, 0, 0.45)
+  --theme-sidebar-bg: #0b0f14
+  --theme-sidebar-text: #f4f7fb
+  --theme-toolbar-bg: rgba(255, 255, 255, 0.08)
+  --theme-toolbar-bg-hover: rgba(255, 255, 255, 0.16)
+  --theme-code-bg: #1a2028
+  --theme-code-text: #d8dee9
+  --theme-code-inline-bg: #1a2028
+  --theme-mobile-border: rgba(255, 255, 255, 0.18)
+  --theme-header-bg: #0b0f14
+  --theme-overlay: rgba(0, 0, 0, 0.45)
+
+html, body
+  background: var(--theme-bg)
+
+body
+  color: var(--theme-text)
+  transition: background-color .35s ease, color .35s ease, transform .2s cubic-bezier(.4,.01,.165,.99)
+
+a
+  color: var(--theme-link)
+
+a:hover
+  color: var(--theme-link)
+
+.wrap
+  background-color: var(--theme-surface)
+  transition: background-color .35s ease, color .35s ease, box-shadow .35s ease
+
+.sidebar
+  background-color: var(--theme-sidebar-bg)
+  box-shadow: 0 0 10px var(--theme-shadow)
+  transition: background-color .35s ease, box-shadow .35s ease
+
+#header
+  transition: border-color .35s ease, box-shadow .35s ease, background-color .35s ease
+
+header
+  background-color: var(--theme-header-bg)
+  transition: background-color .35s ease, box-shadow .35s ease
+
+#banner
+  transition: opacity .35s ease
+
+.article-inner,
+.widget,
+#comments,
+.article-share-box,
+.search-form,
+.article-share-links,
+.article-share-input,
+.article-more-link a,
+.article-entry code,
+.article-entry .highlight,
+.article-entry .gist
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease
+
+.article-inner,
+.widget,
+#comments
+  background-color: var(--theme-surface)
+  border-color: var(--theme-border)
+  box-shadow: 1px 2px 3px var(--theme-shadow)
+
+.article-entry,
+.article-title,
+.article-footer a,
+.article-category,
+.article-category-link,
+.article-date,
+.caption,
+.widget,
+.search-form-input,
+.article-share-input,
+.article-more-link a
+  color: var(--theme-text)
+
+.article-title
+  color: var(--theme-text)
+
+.article-entry a,
+.widget a,
+#comments a,
+.article-footer a:hover,
+.article-more-link a:hover
+  color: var(--theme-link)
+
+.article-entry th,
+.article-entry td,
+.article-footer,
+.article-entry hr,
+.article-entry blockquote,
+.article-entry .caption
+  border-color: var(--theme-border-soft)
+
+article,
+article .article-footer,
+article .relative-post,
+article #toc,
+article #toc strong,
+article img,
+article table th,
+article table td,
+article blockquote,
+article .article-content blockquote,
+article .article-content table th,
+article .article-content table td
+  border-color: var(--theme-border-soft)
+
+article blockquote,
+article .article-content blockquote
+  border-left-color: var(--theme-border-accent)
+
+.article-entry code
+  background-color: var(--theme-code-inline-bg)
+  color: var(--theme-code-text)
+  border-radius: 3px
+  padding: 0 0.3em
+
+.article-entry pre code,
+.article-entry .highlight code,
+.article-entry .gist code
+  background: none
+  color: inherit
+  padding: 0
+
+.article-share-box
+  background-color: var(--theme-surface)
+  box-shadow: 1px 2px 10px var(--theme-shadow)
+
+.article-share-input
+  background-color: transparent
+  border-color: var(--theme-border)
+  color: var(--theme-text)
+
+.article-share-links
+  background-color: var(--theme-surface)
+
+.article-more-link a
+  background-color: var(--theme-surface)
+  color: var(--theme-muted)
+  text-shadow: none
+
+.article-more-link a:hover
+  background-color: var(--theme-link)
+  color: #ffffff
+
+.search-form
+  background-color: var(--theme-surface)
+
+.search-form-input
+  color: var(--theme-text)
+
+.search-form-submit
+  color: var(--theme-muted)
+
+.article-category,
+.article-date,
+.widget-title,
+.article-more-link a,
+.article-share-link,
+.article-share-input
+  text-shadow: none
+
+html[data-theme='dark'] .article-title,
+html[data-theme='dark'] .article-entry,
+html[data-theme='dark'] .article-footer a,
+html[data-theme='dark'] .article-category,
+html[data-theme='dark'] .article-category-link,
+html[data-theme='dark'] .article-date,
+html[data-theme='dark'] .caption,
+html[data-theme='dark'] .widget-title,
+html[data-theme='dark'] .article-more-link a,
+html[data-theme='dark'] .article-share-link
+  text-shadow: none
+
+html[data-theme='dark'] #header:before
+  background: linear-gradient(rgba(0, 0, 0, 0.45), transparent)
+
+html[data-theme='dark'] #header:after
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.45))
+
+html[data-theme='dark'] .search-form
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35)
+
+html[data-theme='dark'] .article-entry pre,
+html[data-theme='dark'] .article-entry .highlight,
+html[data-theme='dark'] .article-entry .gist
+  border-color: var(--theme-border)
+
+html[data-theme='dark'] .article-entry code
+  background-color: var(--theme-code-inline-bg)
+
+html[data-theme='dark'] .article-entry pre,
+html[data-theme='dark'] .article-entry .highlight,
+html[data-theme='dark'] .article-entry .gist,
+html[data-theme='dark'] .article-entry .video-container
+  background-color: var(--theme-surface-strong)
+
+html[data-theme='dark'] article code,
+html[data-theme='dark'] article .article-content code
+  background-color: var(--theme-code-inline-bg)
+  color: var(--theme-code-text)
+  border-color: var(--theme-border)
+
+html[data-theme='dark'] article blockquote,
+html[data-theme='dark'] article .article-content blockquote
+  background-color: var(--theme-surface-strong)
+  color: var(--theme-text)
+
+html[data-theme='dark'] article pre,
+html[data-theme='dark'] article pre code,
+html[data-theme='dark'] article .article-content pre,
+html[data-theme='dark'] article .article-content pre code
+  background-color: var(--theme-surface-strong)
+  color: var(--theme-text)
+  border-color: var(--theme-border)
+
+html[data-theme='dark'] .article-entry a:hover,
+html[data-theme='dark'] .widget a:hover,
+html[data-theme='dark'] #comments a:hover
+  color: var(--theme-link)
+
+html[data-theme='dark'] .article-entry table th,
+html[data-theme='dark'] .article-entry table td
+  border-color: var(--theme-border)
+
+html[data-theme='dark'] article,
+html[data-theme='dark'] article .article-footer,
+html[data-theme='dark'] article .relative-post,
+html[data-theme='dark'] article #toc,
+html[data-theme='dark'] article #toc strong,
+html[data-theme='dark'] article img,
+html[data-theme='dark'] article table th,
+html[data-theme='dark'] article table td,
+html[data-theme='dark'] article blockquote,
+html[data-theme='dark'] article .article-content blockquote,
+html[data-theme='dark'] article .article-content table th,
+html[data-theme='dark'] article .article-content table td
+  border-color: var(--theme-border-soft)
+
+html[data-theme='dark'] .article-entry blockquote
+  color: var(--theme-muted)
+
+html[data-theme='dark'] .article-more-link a
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset
+
+html[data-theme='dark'] .article-share-box
+  border-color: var(--theme-border)
+
+html[data-theme='dark'] .search-form-submit:hover,
+html[data-theme='dark'] .search-form-submit:focus
+  color: var(--theme-text)
+
+html[data-theme='dark'] .nav-icon,
+html[data-theme='dark'] .main-nav-link,
+html[data-theme='dark'] .profile-title,
+html[data-theme='dark'] .navbar-link,
+html[data-theme='dark'] .third-icon,
+html[data-theme='dark'] .theme-toggle
+  color: var(--theme-sidebar-text)
+
+html[data-theme='dark'] .wrap,
+html[data-theme='dark'] .sidebar,
+html[data-theme='dark'] #header,
+html[data-theme='dark'] header,
+html[data-theme='dark'] .article-inner,
+html[data-theme='dark'] .widget,
+html[data-theme='dark'] #comments,
+html[data-theme='dark'] .article-share-box,
+html[data-theme='dark'] .search-form,
+html[data-theme='dark'] .article-more-link a,
+html[data-theme='dark'] .article-entry code,
+html[data-theme='dark'] .article-entry .highlight,
+html[data-theme='dark'] .article-entry .gist,
+html[data-theme='dark'] .search-form-input,
+html[data-theme='dark'] .article-share-input
+  border-color: var(--theme-border)

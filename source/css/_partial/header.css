@@ -1,18 +1,67 @@
 header{
-    background-image: url(images/cover.jpg);
     display: none;
-    background-color: #202020;
-    box-shadow: 0 0 5px #333;
+    position: fixed;
+    background-image: none;
+    background-color: var(--theme-header-bg);
+    box-shadow: 0 0 5px var(--theme-shadow);
     height: 50px;
     left: 0;
     line-height: 50px;
     overflow: hidden;
-    position: fixed;
     top: 0;
     width: 100%;
     z-index: 9
   }
-  
+
+header::before,
+header::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+    transition: opacity .35s ease;
+    will-change: opacity;
+  }
+
+header::before{
+    background-image: url(images/cover.jpg);
+    opacity: 1;
+  }
+
+header::after{
+    background-image: url(images/cover_night.jpg);
+    opacity: 0;
+  }
+
+@supports (background-image: image-set(url("images/cover.webp") 1x))
+{
+    header::before{
+        background-image: -webkit-image-set(url(images/cover.webp) 1x, url(images/cover.jpg) 1x);
+        background-image: image-set(url(images/cover.webp) type("image/webp") 1x, url(images/cover.jpg) type("image/jpeg") 1x);
+    }
+
+    header::after{
+        background-image: -webkit-image-set(url(images/cover_night.webp) 1x, url(images/cover_night.jpg) 1x);
+        background-image: image-set(url(images/cover_night.webp) type("image/webp") 1x, url(images/cover_night.jpg) type("image/jpeg") 1x);
+    }
+}
+
+html[data-theme='dark'] header::before{
+    opacity: 0;
+}
+
+html[data-theme='dark'] header::after{
+    opacity: 1;
+}
+
+header > *{
+    position: relative;
+    z-index: 1;
+}
+
   .expand-btn{
     position: absolute;
     width: 50px;

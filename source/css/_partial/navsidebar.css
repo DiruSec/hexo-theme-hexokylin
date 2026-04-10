@@ -1,22 +1,76 @@
 .wrapper{
-    background-image: url(images/cover.jpg);
-    background-size: cover;
-    background-position: left;
-    background-repeat: no-repeat;
+    position: relative;
+    background-color: var(--theme-sidebar-bg);
+    background-image: none;
     height: 100%;
-    transition: background 2s ease-in-out;
+    overflow: hidden;
+    color: var(--theme-sidebar-text);
 }
-.wrapper:hover{
-    background-position: right;
+
+.wrapper::before,
+.wrapper::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+    transition: opacity .35s ease, background-position 3s ease;
+    will-change: opacity, background-position;
 }
+
+.wrapper::before{
+    background-image: url(images/cover.jpg);
+    opacity: 1;
+}
+
+.wrapper::after{
+    background-image: url(images/cover_night.jpg);
+    opacity: 0;
+}
+
+@supports (background-image: image-set(url("images/cover.webp") 1x))
+{
+    .wrapper::before{
+        background-image: -webkit-image-set(url(images/cover.webp) 1x, url(images/cover.jpg) 1x);
+        background-image: image-set(url(images/cover.webp) type("image/webp") 1x, url(images/cover.jpg) type("image/jpeg") 1x);
+    }
+
+    .wrapper::after{
+        background-image: -webkit-image-set(url(images/cover_night.webp) 1x, url(images/cover_night.jpg) 1x);
+        background-image: image-set(url(images/cover_night.webp) type("image/webp") 1x, url(images/cover_night.jpg) type("image/jpeg") 1x);
+    }
+}
+
+html[data-theme='dark'] .wrapper::before{
+    opacity: 0;
+}
+
+html[data-theme='dark'] .wrapper::after{
+    opacity: 1;
+}
+
+.wrapper > *{
+    position: relative;
+    z-index: 1;
+}
+
+.wrapper:hover::before,
+.wrapper:hover::after{
+    background-position: right center;
+}
+
 .profile{
     padding-top: 40px;
     padding-bottom: 10px;
 }
+
 .profile-image{
     display: block;
     margin: 0 auto;
 }
+
 .profile-image-container{
     background-image: url(images/wow.png);
     display: block;
@@ -26,19 +80,22 @@
     width: 140px;
     overflow: hidden;
 }
+
 .profile-title{
     display: block;
     font-size: 18px;
     padding: 10px 0;
     text-align: center;
-    color: #FFF;
+    color: var(--theme-sidebar-text);
 }
+
 .navbar-link ul, .navbar-link li{
     list-style: none;
     margin: 0;
     padding: 0;
     font-size: 0;
 }
+
 .navbar-link li{
     display: block;
     font-size: 16px;
@@ -46,14 +103,17 @@
     width: 100%;
     line-height: 45px;
 }
+
 .navbar{
     margin-bottom: 20px;
 }
+
 .navbar-link, .wrapper i, .wrapper span{
-    color: #fff;
+    color: var(--theme-sidebar-text);
     line-height: 45px;
     font-family: FontAwesome;
 }
+
 .navbar-link{
     display: inline-block;
     padding-left: 25px;
@@ -61,11 +121,13 @@
     box-sizing: border-box;
     line-height: 45px;
 }
+
 .navbar-link i{
     font-size: 20px;
     margin-right: 20px;
     width: 25px;
 }
+
 .navbar-link span{
     position: relative;
     top: -4px;
@@ -77,10 +139,55 @@
     padding-left: 25px;
 }
 
+.thirdbar-icons,
+.thirdbar-actions{
+    display: block;
+}
+
+.thirdbar-icons{
+    white-space: nowrap;
+}
+
+.thirdbar-actions{
+    margin-top: 10px;
+    margin-left: 4px;
+}
+
 .third-icon{
     font-size: 20px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 20px;
+    color: var(--theme-sidebar-text);
+}
+
+button.third-icon{
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    height: auto;
+    width: auto;
+    padding: 0;
+    line-height: 1;
+    transition: none;
+}
+
+button.third-icon:hover{
+    background: none;
+    transform: none;
+}
+
+button.third-icon:focus{
+    outline: none;
+}
+
+button.third-icon i{
+    font-size: 16px;
+    margin-right: 0;
+    width: auto;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
@@ -95,6 +202,28 @@
 
     .wrapper span{
         display: none;
+    }
+
+    .thirdbar-icons{
+        white-space: normal;
+    }
+
+    .thirdbar-icons,
+    .thirdbar-actions{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .thirdbar-icons .third-icon,
+    .thirdbar-actions .third-icon{
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .thirdbar-actions{
+        margin-top: 0;
     }
 
     #sidebar-mask{

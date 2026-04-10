@@ -1,4 +1,62 @@
 (function($){
+  var themeStorageKey = 'hexokylin-theme-mode';
+  var themeRoot = document.documentElement;
+  var themeMedia = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  var themeToggle = null;
+
+  var safeGetThemeMode = function(){
+    try {
+      var stored = localStorage.getItem(themeStorageKey);
+      if (stored === 'light' || stored === 'dark' || stored === 'auto') {
+        return stored;
+      }
+    } catch (err) {}
+
+    return 'auto';
+  };
+
+  var safeSetThemeMode = function(mode){
+    try {
+      localStorage.setItem(themeStorageKey, mode);
+    } catch (err) {}
+  };
+
+  var getSystemTheme = function(){
+    return themeMedia && themeMedia.matches ? 'dark' : 'light';
+  };
+
+  var getEffectiveTheme = function(mode){
+    return mode === 'auto' ? getSystemTheme() : mode;
+  };
+
+  var updateThemeToggle = function(mode, theme){
+    var iconClass = 'fas fa-adjust';
+
+    if (mode === 'dark') {
+      iconClass = 'fas fa-moon';
+    } else if (mode === 'light') {
+      iconClass = 'fas fa-sun';
+    }
+
+    themeRoot.setAttribute('data-theme-mode', mode);
+    themeRoot.setAttribute('data-theme', theme);
+
+    if (!themeToggle || !themeToggle.length) return;
+
+    themeToggle.attr('data-theme-mode', mode);
+    themeToggle.find('i').attr('class', iconClass);
+  };
+
+  var applyTheme = function(mode){
+    updateThemeToggle(mode, getEffectiveTheme(mode));
+  };
+
+  var cycleThemeMode = function(mode){
+    if (mode === 'auto') return 'dark';
+    if (mode === 'dark') return 'light';
+    return 'auto';
+  };
+
   // Search
   var $searchWrap = $('#search-form-wrap'),
     isSearchAnim = false,
@@ -149,4 +207,26 @@
 
   $('.expand-btn').on('click', expandSide)
   $('#sidebar-mask').on('click', expandSide)
+
+  themeToggle = $('#theme-toggle');
+  applyTheme(safeGetThemeMode());
+  themeToggle.on('click', function(){
+    var nextMode = cycleThemeMode(safeGetThemeMode());
+    safeSetThemeMode(nextMode);
+    applyTheme(nextMode);
+  });
+
+  if (themeMedia) {
+    var handleSystemThemeChange = function(){
+      if (safeGetThemeMode() === 'auto') {
+        applyTheme('auto');
+      }
+    };
+
+    if (themeMedia.addEventListener) {
+      themeMedia.addEventListener('change', handleSystemThemeChange);
+    } else if (themeMedia.addListener) {
+      themeMedia.addListener(handleSystemThemeChange);
+    }
+  }
 })(jQuery);

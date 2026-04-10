@@ -1,6 +1,8 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <%- partial('post/date', {class_name: 'article-date', date_format: "YYYY-MM-DD HH:mm:ss"}) %>
+    <% if (!(post.type && post.type.toLowerCase() === 'page')){ %>
+    <%- partial('post/date', {class_name: 'article-date', date_format: "YYYY-MM-DD HH:mm"}) %>
+    <% } %>
     <% if (post.link || post.title){ %>
       <div class="article-header">
         <%- partial('post/title', {class_name: 'article-title'}) %>

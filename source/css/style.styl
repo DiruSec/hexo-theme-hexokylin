@@ -5,6 +5,7 @@
 @import "_style.css"
 @import "fonts/fontawesome.min.css"
 @import "_extend"
+@import "monokai.min.css"
 
 global-reset()
 
@@ -26,13 +27,15 @@ input, button
        url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
 
 html, body, #container
-  height: 100%
+  min-height: 100%
+  height: auto
 
 body
   transition: transform .2s cubic-bezier(.4,.01,.165,.99);
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   width: 100%;
   background: color-background;
   font-family: Helvetica Neue, Arial, Hiragino Sans GB, STHeiti, Microsoft YaHei;
@@ -71,3 +74,4 @@ body
 @import "_partial/mobile"
 @import "_partial/navsidebar.css"
 @import "_partial/tags.css"
+@import "_partial/theme"

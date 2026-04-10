@@ -23,6 +23,7 @@
     </ul>
     <ul class="thirdbar">
         <li>
+            <div class="thirdbar-icons">
             <% for (var menuName in theme.iconmenu){ %>
                 <%
                 var link = Object.assign({}, theme.iconmenu[menuName])
@@ -33,6 +34,12 @@
             <a href="<%- (link.url) %>" class="third-icon"><i class="<%- (link.icon) %>"></i></a>
             <% } %>
             <a class="third-icon" href="https://www.google.com/webhp#newwindow=1&q=site:https://dirusec.com/blog"><i class="fa fa-search"></i></a>
+            </div>
+            <div class="thirdbar-actions">
+                <button type="button" class="third-icon theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换主题">
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
+                </button>
+            </div>
         </li>
     </ul>
 </div>

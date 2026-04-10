@@ -1,7 +1,7 @@
 article{
     padding: 30px 0;
     border-bottom: 1px solid #ddd;
-    border-top: 1px solid #fff;
+    /* border-top: 1px solid #fff; */
   }
   
 .article-date{
@@ -34,7 +34,7 @@ article{
   }
 
   .article-meta{
-    margin-bottom: .5rem;
+    margin-bottom: .8rem;
   }
 
   .article-info{
@@ -118,7 +118,7 @@ article{
   }
   
   article {
-    border-top: 1px solid #fff;
+    /* border-top: 1px solid #fff; */
     position: relative;
     word-wrap: break-word;
   }
@@ -249,10 +249,32 @@ article{
   }
   
   article .article-content {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.8;
     word-wrap: break-word;
-    border-top: 1px solid #fff;
+    /* border-top: 1px solid #fff; */
+    padding-bottom: .5rem;
+  }
+
+  article .article-content h1{
+    font-size: 1.85em;
+  }
+
+  article .article-content h2{
+    font-size: 1.45em;
+  }
+
+  article .article-content h3{
+    font-size: 1.25em;
+  }
+
+  article .article-content h4{
+    font-size: 1.1em;
+  }
+
+  article .article-content h5,
+  article .article-content h6{
+    font-size: 1em;
   }
   
   article .article-content p,

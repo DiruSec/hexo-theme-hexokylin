@@ -7,6 +7,31 @@
   <% } %>
 <head>
   <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function() {
+      var storageKey = 'hexokylin-theme-mode';
+      var root = document.documentElement;
+      var mode = 'auto';
+
+      try {
+        var stored = localStorage.getItem(storageKey);
+        if (stored === 'light' || stored === 'dark' || stored === 'auto') {
+          mode = stored;
+        }
+      } catch (err) {}
+
+      var isDark = false;
+      try {
+        isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } catch (err) {}
+
+      var theme = mode === 'auto' ? (isDark ? 'dark' : 'light') : mode;
+
+      root.setAttribute('data-theme-mode', mode);
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
   <%- partial('google-analytics') %>
   <%
   var title = page.title;

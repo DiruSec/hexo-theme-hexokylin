@@ -2,9 +2,9 @@
     <p> 
         <span class="eof-status-dot"></span>
         <span class="eof-status-text">200 OK</span> --
-        发表于 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm:ss") %></time>
+        发表于 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm") %></time>
         <% if (post.updated && post.updated !== post.date) { %>
-            ，最后更新于 <time datetime="<%= date_xml(post.updated) %>" itemprop="dateUpdated"><%= date(post.updated, "YYYY-MM-DD HH:mm:ss") %></time>
+            ，最后更新于 <time datetime="<%= date_xml(post.updated) %>" itemprop="dateUpdated"><%= date(post.updated, "YYYY-MM-DD HH:mm") %></time>
         <% } %>
     </p>
 </div>
@@ -12,14 +12,12 @@
 <script>
 (function() {
     try {
-        // 2.1 从 meta 标签获取时间 (Hexo 默认会在 head 生成这些 meta)
         const pubMeta = document.querySelector("meta[property='article:published_time']");
         const modMeta = document.querySelector("meta[property='article:modified_time']");
         
         const pubTime = pubMeta ? new Date(pubMeta.content).getTime() : 0;
         const modTime = modMeta ? new Date(modMeta.content).getTime() : 0;
         
-        // 以最新者为准
         const latestTime = Math.max(pubTime, modTime);
         const statusDot = document.querySelector('.eof-status-dot');
         const statusText = document.querySelector('.eof-status-text');
@@ -28,18 +26,15 @@
             const now = Date.now();
             const diffDays = (now - latestTime) / (1000 * 60 * 60 * 24);
             
-            // 2.3 如果不满足 180 天内，显示黄色 304
             if (diffDays > 180) {
-                statusDot.style.background = '#FFC107'; // 黄色
+                statusDot.style.background = '#FFC107';
                 statusText.textContent = '304 Not Modified';
             } else {
-                // 2.2 满足要求显示绿色 200
-                statusDot.style.background = '#4CAF50'; // 绿色
+                statusDot.style.background = '#4CAF50';
                 statusText.textContent = '200 OK';
             }
         }
     } catch (e) {
-        // 2.4 默认 200 OK
         console.error("EOF Status Error:", e);
         document.querySelector('.eof-status-dot').style.background = '#4CAF50';
         document.querySelector('.eof-status-text').textContent = '200 OK';
