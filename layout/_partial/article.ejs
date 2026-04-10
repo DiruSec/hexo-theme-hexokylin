@@ -22,8 +22,10 @@
   </div>
     <% if (!index){ %>
     <div class="article-footer">
-        <%- partial('post/article_date') %>
-        <%- partial('post/category_tag') %>
+        <% if (!(post.type && post.type.toLowerCase() === 'page')){ %>
+          <%- partial('post/article_date') %>
+          <%- partial('post/category_tag') %>
+        <% } %>
       <% if (post.comments && config.disqus_shortname){ %>
         <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
       <% } %>
