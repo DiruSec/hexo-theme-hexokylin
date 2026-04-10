@@ -30,19 +30,19 @@
             
             // 2.3 如果不满足 180 天内，显示黄色 304
             if (diffDays > 180) {
-                statusDot.style.color = '#FFC107'; // 黄色
+                statusDot.style.background = '#FFC107'; // 黄色
                 statusText.textContent = '304 Not Modified';
             } else {
                 // 2.2 满足要求显示绿色 200
-                statusDot.style.color = '#4CAF50'; // 绿色
+                statusDot.style.background = '#4CAF50'; // 绿色
                 statusText.textContent = '200 OK';
             }
         }
     } catch (e) {
         // 2.4 默认 200 OK
         console.error("EOF Status Error:", e);
-        document.querySelector('#eof-status-dot').style.color = '#4CAF50';
-        document.querySelector('#eof-status-text').textContent = '200 OK';
+        document.querySelector('.eof-status-dot').style.background = '#4CAF50';
+        document.querySelector('.eof-status-text').textContent = '200 OK';
     }
 })();
 </script>
