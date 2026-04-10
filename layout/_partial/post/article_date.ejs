@@ -1,8 +1,7 @@
 <div class="article-date-container">
-    <p> -- 
-        <span id="eof-status-dot" style="margin-right: 4px;">●</span>
-        <span id="eof-status-text" title="End of File">200 OK</span> 
-        --
+    <p> 
+        <span id="eof-status-dot">●</span>
+        <span id="eof-status-text">200 OK</span> --
         发表于 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm:ss") %></time>
         <% if (post.updated && post.updated !== post.date) { %>
             ，最后更新于 <time datetime="<%= date_xml(post.updated) %>" itemprop="dateUpdated"><%= date(post.updated, "YYYY-MM-DD HH:mm:ss") %></time>

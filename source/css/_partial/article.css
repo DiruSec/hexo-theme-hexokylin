@@ -41,8 +41,18 @@ article{
     font-size: .9rem;
   }
 
+  .eof-status-dot{
+    margin-right: .25rem;
+    background: rgb(76, 175, 80);
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
   .article-footer p{
     margin: 1rem 0;
+    line-height: 1.5
   }
 
   .article-footer{
