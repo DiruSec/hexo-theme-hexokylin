@@ -1,17 +1,37 @@
-<% if (config.disqus_shortname){ %>
-<script>
-  var disqus_shortname = '<%= config.disqus_shortname %>';
-  <% if (page.permalink){ %>
-  var disqus_url = '<%= page.permalink %>';
+<% if (post.comments && config.disqus_shortname){ %>
+  <% if (config.disqusjs) { %>
+  <link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/disqusjs/3.1.1/styles/disqusjs.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/disqusjs/3.1.1/disqusjs.es2015.umd.min.js"></script>
+  <script>
+    const disqusjs = new DisqusJS({
+      shortname: '<%= config.disqus_shortname %>',
+      siteName: '<%= config.title %>',
+      identifier: '',
+      url: '',
+      title: '',
+      api: '<%= config.disqusjs_api %>',
+      apikey: '<%= config.disqusjs_key %>',
+      admin: '',
+      adminLabel: ''
+    });
+    disqusjs.render('#disqus_thread');
+  </script>
+  <% } else { %>
+  <script>
+    var disqus_shortname = '<%= config.disqus_shortname %>';
+    <% if (page.permalink){ %>
+    var disqus_url = '<%= page.permalink %>';
+    <% } %>
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
   <% } %>
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
 <% } %>
 
 <% if (config.pacejs) { %>
@@ -19,7 +39,7 @@
   <script src="<%- url_for('/pacejs/pace.min.js') %>"></script>
 <% } %>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <% if (theme.fancybox){ %>
   <%- css('fancybox/jquery.fancybox') %>
