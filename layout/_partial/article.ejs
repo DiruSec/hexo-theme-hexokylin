@@ -20,7 +20,7 @@
   </div>
     <% if (!index){ %>
     <div class="article-footer">
-        <p> -- <acronym title="End of File">EOF</acronym> -- </p>
+        <%- partial('post/article_date') %>
         <%- partial('post/category_tag') %>
       <% if (post.comments && config.disqus_shortname){ %>
         <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
