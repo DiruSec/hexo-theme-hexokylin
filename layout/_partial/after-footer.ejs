@@ -9,6 +9,8 @@
       siteName: '<%= config.title %>',
       api: '<%= config.disqusjs_api %>',
       apikey: '<%= config.disqusjs_key %>',
+      identifier: 'https://blog.dirusec.com'+document.location.pathname,
+      url: 'https://blog.dirusec.com'+document.location.pathname
     });
     disqusjs.render('#disqusjs');
   </script>
