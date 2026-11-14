@@ -1,14 +1,16 @@
-.wrapper{
+.wrapper {
     position: relative;
     background-color: var(--theme-sidebar-bg);
     background-image: none;
     height: 100%;
     overflow: hidden;
     color: var(--theme-sidebar-text);
+    display: flex;
+    flex-direction: column;
 }
 
 .wrapper::before,
-.wrapper::after{
+.wrapper::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -16,217 +18,258 @@
     background-repeat: no-repeat;
     background-size: cover;
     pointer-events: none;
-    transition: opacity .35s ease, background-position 3s ease;
+    transition: opacity .35s ease, background-position 3s ease, filter .35s ease;
     will-change: opacity, background-position;
 }
 
-.wrapper::before{
+.wrapper::before {
     background-image: url(images/cover.jpg);
     opacity: 1;
+    filter: brightness(0.68) contrast(1.06) saturate(0.92);
 }
 
-.wrapper::after{
+.wrapper::after {
     background-image: url(images/cover_night.jpg);
     opacity: 0;
+    filter: brightness(0.72) contrast(1.06) saturate(0.95);
 }
 
-@supports (background-image: image-set(url("images/cover.webp") 1x))
-{
-    .wrapper::before{
+@supports (background-image: image-set(url("images/cover.webp") 1x)) {
+    .wrapper::before {
         background-image: -webkit-image-set(url(images/cover.webp) 1x, url(images/cover.jpg) 1x);
         background-image: image-set(url(images/cover.webp) type("image/webp") 1x, url(images/cover.jpg) type("image/jpeg") 1x);
     }
 
-    .wrapper::after{
+    .wrapper::after {
         background-image: -webkit-image-set(url(images/cover_night.webp) 1x, url(images/cover_night.jpg) 1x);
         background-image: image-set(url(images/cover_night.webp) type("image/webp") 1x, url(images/cover_night.jpg) type("image/jpeg") 1x);
     }
 }
 
-html[data-theme='dark'] .wrapper::before{
+html[data-theme='dark'] .wrapper::before {
     opacity: 0;
 }
 
-html[data-theme='dark'] .wrapper::after{
+html[data-theme='dark'] .wrapper::after {
     opacity: 1;
 }
 
-.wrapper > *{
+/* Subtle gradient scrim over cover photo for crisp text & icon legibility */
+.wrapper > .profile,
+.wrapper > .navbar,
+.wrapper > .thirdbar {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+}
+
+.wrapper > .profile {
+    background: linear-gradient(180deg, rgba(10, 14, 20, 0.42) 0%, rgba(10, 14, 20, 0.18) 100%);
+}
+
+.wrapper > .navbar,
+.wrapper > .thirdbar {
+    background: linear-gradient(180deg, rgba(10, 14, 20, 0.18) 0%, rgba(10, 14, 20, 0.36) 100%);
+}
+
+.wrapper > .thirdbar {
+    flex: 1 1 auto;
 }
 
 .wrapper:hover::before,
-.wrapper:hover::after{
+.wrapper:hover::after {
     background-position: right center;
 }
 
-.profile{
-    padding-top: 40px;
-    padding-bottom: 10px;
+.profile {
+    padding: 40px 20px 18px;
 }
 
-.profile-image{
+.profile-image {
     display: block;
     margin: 0 auto;
+    width: fit-content;
 }
 
-.profile-image-container{
+.profile-image-container {
     background-image: url(images/wow.png);
+    background-size: cover;
+    background-position: center;
     display: block;
     margin: 0 auto;
-    border-radius: 70px;
-    height: 140px;
-    width: 140px;
+    border-radius: 50%;
+    height: 112px;
+    width: 112px;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.32);
+    transition: transform .25s ease, border-color .25s ease;
 }
 
-.profile-title{
+.profile-image:hover .profile-image-container {
+    transform: scale(1.03);
+    border-color: rgba(255, 255, 255, 0.65);
+}
+
+.profile-title {
     display: block;
-    font-size: 18px;
-    padding: 10px 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 14px 0 4px;
     text-align: center;
     color: var(--theme-sidebar-text);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
-.navbar-link ul, .navbar-link li{
+.navbar {
     list-style: none;
     margin: 0;
-    padding: 0;
-    font-size: 0;
+    padding: 8px 14px 16px;
 }
 
-.navbar-link li{
-    display: block;
-    font-size: 16px;
-    height: 45px;
-    width: 100%;
-    line-height: 45px;
+.nav-warpper {
+    list-style: none;
+    margin: 2px 0;
 }
 
-.navbar{
-    margin-bottom: 20px;
-}
-
-.navbar-link, .wrapper i, .wrapper span{
-    color: var(--theme-sidebar-text);
-    line-height: 45px;
-    font-family: FontAwesome;
-}
-
-.navbar-link{
-    display: inline-block;
-    padding-left: 25px;
+.navbar-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     box-sizing: border-box;
-    line-height: 45px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: background-color .2s ease, color .2s ease, transform .15s ease;
 }
 
-.navbar-link i{
-    font-size: 20px;
-    margin-right: 20px;
-    width: 25px;
+.navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
 }
 
-.navbar-link span{
-    position: relative;
-    top: -4px;
+.navbar-link i {
     font-size: 16px;
-    display: inline-block;
+    width: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.88);
+    flex-shrink: 0;
 }
 
-.thirdbar{
-    padding-left: 25px;
+.navbar-link span {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    color: inherit;
+}
+
+.thirdbar {
+    list-style: none;
+    margin: 0;
+    padding: 4px 20px 24px;
 }
 
 .thirdbar-icons,
-.thirdbar-actions{
-    display: block;
+.thirdbar-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.thirdbar-icons{
-    white-space: nowrap;
+.thirdbar-actions {
+    margin-top: 12px;
 }
 
-.thirdbar-actions{
-    margin-top: 10px;
-    margin-left: 4px;
-}
-
-.third-icon{
-    font-size: 20px;
+.third-icon {
+    font-size: 17px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
-    color: var(--theme-sidebar-text);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.08);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    transition: background-color .2s ease, color .2s ease;
 }
 
-button.third-icon{
+.third-icon:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+button.third-icon {
     appearance: none;
-    background: none;
     border: 0;
-    border-radius: 0;
     cursor: pointer;
-    height: auto;
-    width: auto;
     padding: 0;
     line-height: 1;
-    transition: none;
 }
 
-button.third-icon:hover{
-    background: none;
-    transform: none;
-}
-
-button.third-icon:focus{
+button.third-icon:focus {
     outline: none;
 }
 
-button.third-icon i{
-    font-size: 16px;
+button.third-icon:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.65);
+    outline-offset: 2px;
+}
+
+button.third-icon i {
+    font-size: 15px;
     margin-right: 0;
     width: auto;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
-    .profile-image-container{
-        width: 25px;
-        height: 25px;
+    .profile {
+        padding: 24px 10px 14px;
     }
 
-    .profile-title{
+    .profile-image-container {
+        width: 38px;
+        height: 38px;
+        border-width: 1.5px;
+    }
+
+    .profile-title {
         display: none;
     }
 
-    .wrapper span{
+    .navbar {
+        padding: 6px 10px 14px;
+    }
+
+    .navbar-link {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .navbar-link span {
         display: none;
     }
 
-    .thirdbar-icons{
-        white-space: normal;
+    .thirdbar {
+        padding: 4px 10px 20px;
     }
 
     .thirdbar-icons,
-    .thirdbar-actions{
-        display: flex;
+    .thirdbar-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 8px;
     }
 
-    .thirdbar-icons .third-icon,
-    .thirdbar-actions .third-icon{
-        display: block;
-        margin-right: 0;
-        margin-bottom: 10px;
+    .thirdbar-actions {
+        margin-top: 8px;
     }
 
-    .thirdbar-actions{
-        margin-top: 0;
-    }
-
-    #sidebar-mask{
+    #sidebar-mask {
         display: block;
     }
 }

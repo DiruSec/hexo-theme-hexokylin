@@ -5,7 +5,7 @@
 <% } else { %>
   <% var last; %>
     <div class="article-header article-meta archive-header">
-      <h1 class="article-title">
+      <h1 class="article-title article-title--single">
         <% if (page.category) {%>
           <%= __('category_with', page.category) %>
           <% } else if (page.tag) {%>
@@ -20,12 +20,11 @@
     <% var year = post.date.year(); %>
     <% if (last != year){ %>
       <% if (last != null){ %>
-      <%# Render under article list. %>
-        </div>
+        </ul></div>
       <% } %>
       <% last = year; %>
         <h3 class="archive-title-date">
-          <a href="<%- url_for(config.archive_dir + '/' + year) %>"></a><%= year %></a>
+          <a href="<%- url_for(config.archive_dir + '/' + year) %>"><%= year %></a>
         </h3>
         <div class="archives">
           <ul class="archive-list">
@@ -35,6 +34,7 @@
   <% if (page.posts.length){ %>
   </ul></div>
   <% } %>
+    </div>
 <% } %>
 <% if (page.total > 1){ %>
   <%- partial('paginator') %>

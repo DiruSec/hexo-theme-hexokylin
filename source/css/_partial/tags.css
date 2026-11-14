@@ -1,17 +1,26 @@
-.tags{
-  border: 1px solid rgba(36,121,204,.8);
-  border-radius: 4px;
-  color: rgba(36,121,204,.8);
-  display: inline-block;
-  font-size: 14px;
-  height: 40px;
-  line-height: 40px;
-  margin: 0 15px 10px 0;
-  padding: 0 15px;
-  text-decoration: none;
-  transition: color .2s cubic-bezier(.4,.01,.165,.99),border .2s cubic-bezier(.4,.01,.165,.99);
-  }
+.tagcontents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
 
-  .tags:hover{
-    color: #216EBA
-  }
+.tags {
+  border: 1px solid var(--theme-border);
+  border-radius: 6px;
+  background: var(--theme-surface-strong);
+  color: var(--theme-text);
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.38rem 0.8rem;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.tags:hover {
+  color: var(--theme-link);
+  border-color: var(--theme-link);
+}

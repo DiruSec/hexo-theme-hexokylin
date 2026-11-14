@@ -1,22 +1,22 @@
-<% if (post.categories && post.categories.length){ %>
+<% if ((post.categories && post.categories.length) || (post.tags && post.tags.length)){ %>
     <div class="article-info">
         <% if (post.categories && post.categories.length){ %>
-        文章位于分类「
-        <% for (var i in post.categories.data) { %>
-            <% var category = post.categories.data[i].name %>
-            <a href="<%- url_for('/categories/'+category) %> "><code><%= category  %></code></a>
-        <% } %>
-        」下，
+        <span class="article-info-group">
+            分类：
+            <% for (var i in post.categories.data) { %>
+                <% var category = post.categories.data[i].name %>
+                <a class="article-info-pill" href="<%- url_for('/categories/' + category) %>"><%= category %></a>
+            <% } %>
+        </span>
         <% } %>
         <% if (post.tags && post.tags.length){ %>
-        包含「
-        <% for (var i in post.tags.data) { %>
-            <% var tag = post.tags.data[i].name %>
-            <a href="<%- url_for('/tags/'+tag) %> "><code><%= tag %></code></a>
+        <span class="article-info-group">
+            标签：
+            <% for (var i in post.tags.data) { %>
+                <% var tag = post.tags.data[i].name %>
+                <a class="article-info-pill" href="<%- url_for('/tags/' + tag) %>">#<%= tag %></a>
+            <% } %>
+        </span>
         <% } %>
-        」标签
-        <% } %>
-        。
-        </p>
     </div>
-  <% } %>
+<% } %>
