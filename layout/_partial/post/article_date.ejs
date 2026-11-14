@@ -1,12 +1,9 @@
-<div class="article-date-container">
-    <p> 
-        <span class="eof-status-dot"></span>
-        <span class="eof-status-text">200 OK</span> --
-        发表于 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm") %></time>
-        <% if (post.updated && post.updated !== post.date) { %>
-            ，最后更新于 <time datetime="<%= date_xml(post.updated) %>" itemprop="dateUpdated"><%= date(post.updated, "YYYY-MM-DD HH:mm") %></time>
-        <% } %>
-    </p>
+<div class="eof-header-line eof-status-line">
+  <span class="eof-status-dot"></span>
+  <span class="eof-status-text">200 OK</span>
+</div>
+<div class="eof-header-line">
+  <span class="eof-key">Date:</span> <time class="eof-val" datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, "YYYY-MM-DD HH:mm") %></time><% if (post.updated && post.updated !== post.date) { %> <span class="eof-sep">|</span> <span class="eof-key">Last-Modified:</span> <time class="eof-val" datetime="<%= date_xml(post.updated) %>" itemprop="dateUpdated"><%= date(post.updated, "YYYY-MM-DD HH:mm") %></time><% } %>
 </div>
 
 <script>
@@ -14,29 +11,29 @@
     try {
         const pubMeta = document.querySelector("meta[property='article:published_time']");
         const modMeta = document.querySelector("meta[property='article:modified_time']");
-        
+
         const pubTime = pubMeta ? new Date(pubMeta.content).getTime() : 0;
         const modTime = modMeta ? new Date(modMeta.content).getTime() : 0;
-        
+
         const latestTime = Math.max(pubTime, modTime);
         const statusDot = document.querySelector('.eof-status-dot');
         const statusText = document.querySelector('.eof-status-text');
-        
+
         if (latestTime > 0) {
             const now = Date.now();
             const diffDays = (now - latestTime) / (1000 * 60 * 60 * 24);
-            
+
             if (diffDays > 180) {
-                statusDot.style.background = '#FFC107';
+                statusDot.style.background = '#e5c07b';
                 statusText.textContent = '304 Not Modified';
             } else {
-                statusDot.style.background = '#4CAF50';
+                statusDot.style.background = '#98c379';
                 statusText.textContent = '200 OK';
             }
         }
     } catch (e) {
         console.error("EOF Status Error:", e);
-        document.querySelector('.eof-status-dot').style.background = '#4CAF50';
+        document.querySelector('.eof-status-dot').style.background = '#98c379';
         document.querySelector('.eof-status-text').textContent = '200 OK';
     }
 })();

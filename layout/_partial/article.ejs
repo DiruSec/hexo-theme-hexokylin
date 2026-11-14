@@ -3,6 +3,13 @@
     <% if (post.link || post.title){ %>
       <div class="article-header">
         <%- partial('post/title', {class_name: 'article-title'}) %>
+        <% if (!(post.type && post.type.toLowerCase() === 'page') && post.tags && post.tags.length){ %>
+          <div class="article-header-tags">
+            <% post.tags.data.forEach(function(tag){ %>
+              <a class="article-header-tag" href="<%- url_for('/tags/' + tag.name) %>">#<%= tag.name %></a>
+            <% }) %>
+          </div>
+        <% } %>
       </div>
     <% } %>
     <% if (!(post.type && post.type.toLowerCase() === 'page')){ %>
@@ -25,8 +32,10 @@
   <% if (!index){ %>
     <div class="article-footer">
       <% if (!(post.type && post.type.toLowerCase() === 'page')){ %>
-        <%- partial('post/article_date') %>
-        <%- partial('post/category_tag') %>
+        <div class="eof-headers">
+          <%- partial('post/article_date') %>
+          <%- partial('post/category_tag') %>
+        </div>
       <% } %>
     </div>
     <%- partial('post/nav') %>

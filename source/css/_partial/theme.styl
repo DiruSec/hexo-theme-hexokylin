@@ -18,12 +18,20 @@
   --theme-sidebar-border: rgba(0, 0, 0, 0.08)
   --theme-toolbar-bg: rgba(255, 255, 255, 0.12)
   --theme-toolbar-bg-hover: rgba(255, 255, 255, 0.2)
-  --theme-code-bg: #f6f8fa
-  --theme-code-text: #1f2328
-  --theme-code-inline-bg: #f1f3f5
+  --theme-code-bg: #fafafa
+  --theme-code-text: #383a42
+  --theme-code-inline-bg: #f2f4f7
   --theme-mobile-border: #ffffff
   --theme-header-bg: #181c22
   --theme-overlay: rgba(0, 0, 0, 0.25)
+  /* One Monokai Light syntax & HTTP header tokens */
+  --eof-key: #2563eb
+  --eof-attr: #a17408
+  --eof-val: #383a42
+  --eof-mime: #9c36b5
+  --eof-sep: #8c929d
+  --eof-cat: #2f855a
+  --eof-tag: #c53068
 
 html[data-theme='dark']
   color-scheme: dark
@@ -31,7 +39,7 @@ html[data-theme='dark']
   --theme-text: #d1d5db
   --theme-heading: #f3f4f6
   --theme-muted: #9ca3af
-  --theme-border: #262d38
+  --theme-border: #2b313c
   --theme-border-soft: #1f252e
   --theme-border-accent: #3b4656
   --theme-link: #7ab8ff
@@ -45,12 +53,20 @@ html[data-theme='dark']
   --theme-sidebar-border: rgba(255, 255, 255, 0.08)
   --theme-toolbar-bg: rgba(255, 255, 255, 0.08)
   --theme-toolbar-bg-hover: rgba(255, 255, 255, 0.16)
-  --theme-code-bg: #161b22
-  --theme-code-text: #e6edf3
-  --theme-code-inline-bg: #1f2630
+  --theme-code-bg: #282c34
+  --theme-code-text: #abb2bf
+  --theme-code-inline-bg: #21252b
   --theme-mobile-border: rgba(255, 255, 255, 0.18)
   --theme-header-bg: #0b0f14
   --theme-overlay: rgba(0, 0, 0, 0.45)
+  /* One Monokai Dark syntax & HTTP header tokens */
+  --eof-key: #61afef
+  --eof-attr: #e5c07b
+  --eof-val: #abb2bf
+  --eof-mime: #c678dd
+  --eof-sep: #676f7d
+  --eof-cat: #98c379
+  --eof-tag: #e06c75
 
 html, body
   background: var(--theme-bg)
@@ -94,7 +110,7 @@ header
 .article-share-links
   background-color: var(--theme-surface)
 
-/* Clean adaptive highlight.js palette */
+/* One Monokai Adaptive Palette (Light: #fafafa, Dark: #282c34) */
 .hljs
   background: var(--theme-code-bg)
   color: var(--theme-code-text)
@@ -102,117 +118,101 @@ header
 
 .hljs-comment,
 .hljs-quote
-  color: #6e7781
+  color: #8c929d
   font-style: italic
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-subst
-  color: #cf222e
+.hljs-subst,
+.hljs-tag,
+.hljs-name
+  color: #e05260
 
 .hljs-number,
 .hljs-literal,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-tag .hljs-attr
-  color: #0550ae
+.hljs-symbol,
+.hljs-bullet
+  color: #9c36b5
 
 .hljs-string,
-.hljs-doctag
-  color: #0a3069
+.hljs-doctag,
+.hljs-regexp
+  color: #a17408
 
 .hljs-title,
 .hljs-section,
-.hljs-selector-id
-  color: #8250df
+.hljs-selector-id,
+.hljs-attribute
+  color: #408f3d
   font-weight: 600
 
 .hljs-type,
-.hljs-class .hljs-title
-  color: #953800
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute
-  color: #116329
-
-.hljs-regexp,
-.hljs-link
-  color: #0a3069
-
-.hljs-symbol,
-.hljs-bullet
-  color: #953800
-
+.hljs-class .hljs-title,
 .hljs-built_in,
 .hljs-builtin-name
-  color: #0550ae
+  color: #0c8599
 
-.hljs-meta
-  color: #6e7781
+.hljs-meta,
+.hljs-link,
+.hljs-tag .hljs-attr
+  color: #2563eb
 
 .hljs-addition
-  color: #116329
-  background-color: #dafbe1
+  color: #2f855a
+  background-color: #e6ffed
 
 .hljs-deletion
-  color: #82071e
-  background-color: #ffebe9
+  color: #cb2431
+  background-color: #ffeef0
 
 html[data-theme='dark']
   .hljs-comment,
   .hljs-quote
-    color: #8b949e
+    color: #676f7d
 
   .hljs-keyword,
   .hljs-selector-tag,
-  .hljs-subst
-    color: #ff7b72
+  .hljs-subst,
+  .hljs-tag,
+  .hljs-name
+    color: #e06c75
 
   .hljs-number,
   .hljs-literal,
   .hljs-variable,
   .hljs-template-variable,
-  .hljs-tag .hljs-attr
-    color: #79c0ff
+  .hljs-symbol,
+  .hljs-bullet
+    color: #c678dd
 
   .hljs-string,
-  .hljs-doctag
-    color: #a5d6ff
+  .hljs-doctag,
+  .hljs-regexp
+    color: #e5c07b
 
   .hljs-title,
   .hljs-section,
-  .hljs-selector-id
-    color: #d2a8ff
+  .hljs-selector-id,
+  .hljs-attribute
+    color: #98c379
 
   .hljs-type,
-  .hljs-class .hljs-title
-    color: #ffa657
-
-  .hljs-tag,
-  .hljs-name,
-  .hljs-attribute
-    color: #7ee787
-
-  .hljs-regexp,
-  .hljs-link
-    color: #a5d6ff
-
-  .hljs-symbol,
-  .hljs-bullet
-    color: #ffa657
-
+  .hljs-class .hljs-title,
   .hljs-built_in,
   .hljs-builtin-name
-    color: #79c0ff
+    color: #56b6c2
 
-  .hljs-meta
-    color: #8b949e
+  .hljs-meta,
+  .hljs-link,
+  .hljs-tag .hljs-attr
+    color: #61afef
 
   .hljs-addition
-    color: #aff5b4
-    background-color: rgba(46, 160, 67, 0.15)
+    color: #98c379
+    background-color: rgba(152, 195, 121, 0.14)
 
   .hljs-deletion
-    color: #ffdcd7
-    background-color: rgba(248, 81, 73, 0.15)
+    color: #e06c75
+    background-color: rgba(224, 108, 117, 0.14)
