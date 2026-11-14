@@ -456,14 +456,31 @@ article .article-content .caption {
   padding: 0.75rem 1rem;
   font-family: "JetBrains Mono", "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "PingFang SC", "Hiragino Sans GB", monospace;
   font-size: 0.82rem;
-  line-height: 1.7;
+  line-height: 1.4;
   overflow-x: auto;
   transition: background-color .35s ease, border-color .35s ease, color .35s ease;
 }
 
 .eof-header-line {
-  white-space: pre-wrap;
+  white-space: normal;
   word-break: break-word;
+}
+
+.eof-date-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+}
+
+.eof-date-item {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 540px) {
+  .eof-date-sep {
+    display: none;
+  }
 }
 
 .eof-status-line {
