@@ -45,19 +45,17 @@ article.article--single {
   flex: 1 1 auto;
   min-width: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 0.3rem 0.75rem;
+  display: block;
 }
 
 .article-heading {
   margin: 0;
+  display: inline;
 }
 
 .article-title {
   margin: 0;
-  display: block;
+  display: inline;
   color: var(--theme-heading);
   font-size: 1.75rem;
   font-weight: 650;
@@ -80,7 +78,8 @@ a.article-title:hover {
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 0.25rem 0.5rem;
-  padding-bottom: 0.12rem;
+  margin-left: 0.65rem;
+  vertical-align: baseline;
 }
 
 .article-header-tag {
