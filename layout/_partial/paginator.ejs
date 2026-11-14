@@ -1,11 +1,14 @@
 <% if (page.prev || page.next){ %>
-    <nav class="relative-post">
-      <% if (page.prev){ %>
-        <a class="prevpost" href="<%- url_for(page.prev_link) %>">&laquo; Last Page</a>
-      <% } %>
-      <% if (page.next){ %>
-        <a class="nextpost" href="<%- url_for(page.next_link) %>">Next Page &raquo;</a>
-      <% } %>
-      <div class="clear"></div>
-    </nav>
+<nav class="relative-post" aria-label="分页导航">
+  <div class="relative-post-item relative-post-prev">
+    <% if (page.prev){ %>
+      <a class="prevpost" href="<%- url_for(page.prev_link) %>">&laquo; Last Page</a>
     <% } %>
+  </div>
+  <div class="relative-post-item relative-post-next">
+    <% if (page.next){ %>
+      <a class="nextpost" href="<%- url_for(page.next_link) %>">Next Page &raquo;</a>
+    <% } %>
+  </div>
+</nav>
+<% } %>

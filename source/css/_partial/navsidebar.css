@@ -100,14 +100,11 @@ html[data-theme='dark'] .wrapper::after {
     height: 112px;
     width: 112px;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.38);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.32);
-    transition: transform .25s ease, border-color .25s ease;
+    transition: transform .25s ease;
 }
 
 .profile-image:hover .profile-image-container {
     transform: scale(1.03);
-    border-color: rgba(255, 255, 255, 0.65);
 }
 
 .profile-title {
@@ -150,6 +147,12 @@ html[data-theme='dark'] .wrapper::after {
     color: #ffffff;
 }
 
+.wrapper i,
+.navbar-link i,
+.third-icon i {
+    font-family: FontAwesome;
+}
+
 .navbar-link i {
     font-size: 16px;
     width: 20px;
@@ -172,16 +175,17 @@ html[data-theme='dark'] .wrapper::after {
     padding: 4px 20px 24px;
 }
 
-.thirdbar-icons,
-.thirdbar-actions {
+.thirdbar > li {
+    list-style: none;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
 }
 
+.thirdbar-icons,
 .thirdbar-actions {
-    margin-top: 12px;
+    display: contents;
 }
 
 .third-icon {
@@ -234,7 +238,6 @@ button.third-icon i {
     .profile-image-container {
         width: 38px;
         height: 38px;
-        border-width: 1.5px;
     }
 
     .profile-title {
@@ -258,15 +261,10 @@ button.third-icon i {
         padding: 4px 10px 20px;
     }
 
-    .thirdbar-icons,
-    .thirdbar-actions {
+    .thirdbar > li {
         flex-direction: column;
         align-items: center;
         gap: 8px;
-    }
-
-    .thirdbar-actions {
-        margin-top: 8px;
     }
 
     #sidebar-mask {

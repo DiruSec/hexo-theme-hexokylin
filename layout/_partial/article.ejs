@@ -12,12 +12,12 @@
   <div class="article-content article-entry">
     <%- partial('post/gallery') %>
       <% if (post.excerpt && index){ %>
-        <%- post.excerpt %>
-        <% if (theme.excerpt_link){ %>
-          <p class="article-more-link">
-            <a href="<%- url_for(post.path) %>"><%= theme.excerpt_link %> &raquo;</a>
-          </p>
-        <% } %>
+        <div class="article-excerpt-row">
+          <div class="article-excerpt-body"><%- post.excerpt %></div>
+          <% if (theme.excerpt_link){ %>
+            <a class="article-more-link" href="<%- url_for(post.path) %>"><%= theme.excerpt_link %> &raquo;</a>
+          <% } %>
+        </div>
       <% } else { %>
         <%- post.content %>
       <% } %>
@@ -27,9 +27,6 @@
       <% if (!(post.type && post.type.toLowerCase() === 'page')){ %>
         <%- partial('post/article_date') %>
         <%- partial('post/category_tag') %>
-      <% } %>
-      <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
       <% } %>
     </div>
     <%- partial('post/nav') %>

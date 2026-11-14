@@ -40,8 +40,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .outer {
-  max-width: 780px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .outer {
+    max-width: 960px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .outer {
+    max-width: 1020px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .outer {
+    margin: 0 auto;
+  }
 }
 
 .side {

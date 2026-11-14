@@ -97,6 +97,10 @@ header a {
   padding-left: 0;
 }
 
+header i {
+  font-family: FontAwesome;
+}
+
 @media screen and (max-width: 769px) {
   header {
     display: block;

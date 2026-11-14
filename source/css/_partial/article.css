@@ -82,32 +82,37 @@ a.article-title:hover {
   text-align: right;
 }
 
-/* Read More link on index */
-.article-more-link {
+/* Read More link on index (plain text, aligned right on same row when space allows) */
+.article-excerpt-row {
   display: flex;
-  justify-content: flex-end;
-  margin: 1.25rem 0 0;
-  padding: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.4rem 1.25rem;
 }
 
-.article-more-link a {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 500;
-  line-height: 1.4;
-  padding: 0.35rem 0.9rem;
-  border-radius: 6px;
-  background: var(--theme-surface-strong);
-  border: 1px solid var(--theme-border);
-  color: var(--theme-text);
+.article-excerpt-body > *:first-child {
+  margin-top: 0;
+}
+
+.article-excerpt-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.article-more-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--theme-link);
   text-decoration: none;
-  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
 }
 
-.article-more-link a:hover {
-  background: var(--theme-link);
-  border-color: var(--theme-link);
-  color: #ffffff;
+.article-more-link:hover {
+  color: var(--theme-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Body & Markdown Content */
@@ -485,8 +490,8 @@ article .article-content .caption {
   border-bottom: none;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 .relative-post-item {
@@ -500,30 +505,24 @@ article .article-content .caption {
 
 .prevpost,
 .nextpost {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  display: inline-block;
   max-width: 100%;
+  padding: 0.35rem 0.65rem;
+  margin: 0 -0.65rem;
+  border-radius: 6px;
   color: var(--theme-text);
-  text-decoration: none;
-}
-
-.relative-post-label {
-  font-size: 0.78rem;
-  color: var(--theme-muted);
-}
-
-.relative-post-title {
   font-size: 0.92rem;
-  font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease;
 }
 
-.prevpost:hover .relative-post-title,
-.nextpost:hover .relative-post-title {
+.prevpost:hover,
+.nextpost:hover {
+  background-color: var(--theme-surface-strong);
   color: var(--theme-link);
 }
 
@@ -567,7 +566,7 @@ article .article-content .caption {
 
   .relative-post {
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.5rem;
   }
 
   .relative-post-next {
