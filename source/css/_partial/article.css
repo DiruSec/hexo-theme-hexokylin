@@ -14,7 +14,7 @@ article.article--index:last-of-type {
 }
 
 article.article--single {
-  padding: 2.5rem 0 1rem;
+  padding: 2.5rem 0 0;
   border-bottom: none;
 }
 
