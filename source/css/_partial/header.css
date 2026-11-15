@@ -105,4 +105,8 @@ header i {
   header {
     display: block;
   }
+
+  body.side #sidebar-mask {
+    display: block;
+  }
 }
