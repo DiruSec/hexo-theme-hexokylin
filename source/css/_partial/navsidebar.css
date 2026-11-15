@@ -266,8 +266,4 @@ button.third-icon i {
         align-items: center;
         gap: 8px;
     }
-
-    #sidebar-mask {
-        display: block;
-    }
 }
