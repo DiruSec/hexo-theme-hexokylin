@@ -647,6 +647,10 @@ article .article-content .caption {
     width: 100%;
   }
 
+  .relative-post:not(.relative-post--pager) .relative-post-item:empty {
+    display: none;
+  }
+
   .relative-post-next {
     text-align: right;
   }
