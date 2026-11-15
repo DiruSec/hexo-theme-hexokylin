@@ -1,14 +1,6 @@
 <% if (post.prev || post.next){ %>
 <nav class="relative-post" aria-label="文章导航">
-  <div class="relative-post-item relative-post-prev">
-    <% if (post.prev){ %>
-      <a class="prevpost" href="<%- url_for(post.prev.path) %>" title="<%= post.prev.title %>"><span class="nav-arrow">&laquo;</span><span class="nav-title"><%= post.prev.title %></span></a>
-    <% } %>
-  </div>
-  <div class="relative-post-item relative-post-next">
-    <% if (post.next){ %>
-      <a class="nextpost" href="<%- url_for(post.next.path) %>" title="<%= post.next.title %>"><span class="nav-title"><%= post.next.title %></span><span class="nav-arrow">&raquo;</span></a>
-    <% } %>
-  </div>
+  <div class="relative-post-item relative-post-prev"><% if (post.prev){ %><a class="prevpost" href="<%- url_for(post.prev.path) %>" title="<%= post.prev.title %>"><span class="nav-arrow">&laquo;</span><span class="nav-title"><%= post.prev.title %></span></a><% } %></div>
+  <div class="relative-post-item relative-post-next"><% if (post.next){ %><a class="nextpost" href="<%- url_for(post.next.path) %>" title="<%= post.next.title %>"><span class="nav-title"><%= post.next.title %></span><span class="nav-arrow">&raquo;</span></a><% } %></div>
 </nav>
 <% } %>
