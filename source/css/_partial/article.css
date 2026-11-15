@@ -628,10 +628,26 @@ article .article-content .caption {
 
   .relative-post {
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: stretch;
+    gap: 0.45rem;
+  }
+
+  .relative-post-item {
+    flex: none;
+    width: 100%;
   }
 
   .relative-post-next {
-    text-align: left;
+    text-align: right;
+  }
+
+  .relative-post.relative-post--pager {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .relative-post--pager .relative-post-item {
+    flex: 1 1 0;
+    width: auto;
   }
 }
